@@ -6,7 +6,7 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        --   markdown = { 'markdownlint' },
         typescript = { 'eslint' },
         javascript = { 'eslint' },
         javascriptreact = { 'eslint' },
@@ -55,7 +55,7 @@ return {
           -- avoid superfluous noise, notably within the handy LSP pop-ups that
           -- describe the hovered symbol using Markdown.
           if vim.bo.modifiable then
-            lint.try_lint()
+            lint.try_lint(nil, { ignore_errors = true })
           end
         end,
       })
